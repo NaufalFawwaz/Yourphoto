@@ -1,0 +1,18 @@
+export const STICKERS = [
+  { id: 1, name: 'Heart', emoji: '❤️' },
+  { id: 2, name: 'Star', emoji: '⭐' },
+  { id: 3, name: 'Smile', emoji: '😊' },
+  { id: 4, name: 'Cool', emoji: '😎' },
+  { id: 5, name: 'Party', emoji: '🎉' },
+  { id: 6, name: 'Flower', emoji: '🌸' },
+  { id: 7, name: 'Crown', emoji: '👑' },
+  { id: 8, name: 'Fire', emoji: '🔥' },
+  { id: 9, name: 'Sun', emoji: '☀️' },
+  { id: 10, name: 'Moon', emoji: '🌙' },
+  { id: 11, name: 'Rainbow', emoji: '🌈' },
+  { id: 12, name: 'Cat', emoji: '🐱' },
+  { id: 13, name: 'Dog', emoji: '🐶' },
+  { id: 14, name: 'Pizza', emoji: '🍕' },
+  { id: 15, name: 'Music', emoji: '🎵' },
+  { id: 16, name: 'Balloon', emoji: '🎈' },
+];
