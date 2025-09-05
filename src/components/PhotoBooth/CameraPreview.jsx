@@ -32,11 +32,21 @@ const CameraPreview = ({
     <div className="w-full lg:w-2/3 max-w-2xl">
       <div
         ref={containerRef}
-        className="relative bg-black rounded-lg overflow-hidden shadow-lg"
-      >
+        className="relative bg-black rounded-lg overflow-hidden shadow-lg">
         {isCapturing && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-70 z-20">
-            <div className="text-white text-6xl font-bold">{countdown}</div>
+          <div className="absolute inset-0 flex items-center justify-center z-20">
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="absolute bg-white rounded-full w-32 h-32 animate-ping opacity-20"></div>
+                <div className="absolute bg-white rounded-full w-28 h-28 animate-ping opacity-15 delay-300"></div>
+              </div>
+              
+              <div className="bg-gradient-to-br from-blue-500 to-purple-600 rounded-full w-24 h-24 flex items-center justify-center border-4 border-white shadow-2xl">
+                <span className="text-4xl font-bold text-white drop-shadow-lg">
+                  {countdown}
+                </span>
+              </div>
+            </div>
           </div>
         )}
 
@@ -46,7 +56,7 @@ const CameraPreview = ({
               setShowFilterPanel((v) => !v);
               setShowStickerPanel(false);
             }}
-            className={`p-2 rounded-full transition-colors duration-200 ${
+            className={`p-2 rounded-full transition-colors duration-200 cursor-pointer ${
               showFilterPanel 
                 ? 'bg-blue-500 text-white' 
                 : (isDarkMode ? 'bg-gray-700 text-white' : 'bg-white text-black')
@@ -60,7 +70,7 @@ const CameraPreview = ({
               setShowStickerPanel((v) => !v);
               setShowFilterPanel(false);
             }}
-            className={`p-2 rounded-full transition-colors duration-200 ${
+            className={`p-2 rounded-full transition-colors duration-200 cursor-pointer ${
               showStickerPanel 
                 ? 'bg-blue-500 text-white' 
                 : (isDarkMode ? 'bg-gray-700 text-white' : 'bg-white text-black')
@@ -103,7 +113,7 @@ const CameraPreview = ({
           autoPlay
           playsInline
           muted
-          className={`w-full h-auto aspect-video ${selectedFilter}`}
+          className={`w-full h-auto aspect-video ${selectedFilter} transform scale-x-[-1]`}
         />
       </div>
 

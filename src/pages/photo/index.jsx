@@ -85,6 +85,8 @@ const PhotoPage = () => {
       const canvasFilter = mapClassToCanvasFilter(selectedFilter);
       
       context.save();
+      context.translate(canvas.width, 0);
+      context.scale(-1, 1);
       context.filter = canvasFilter;
       context.drawImage(videoRef.current, 0, 0, canvas.width, canvas.height);
       context.restore();
@@ -95,14 +97,14 @@ const PhotoPage = () => {
         const scaleY = canvas.height / rect.height;
 
         activeStickers.forEach((sticker) => {
-          const cx = sticker.position.x * scaleX;
-          const cy = sticker.position.y * scaleY;
-          const fontPx = Math.round((sticker.size || 48) * Math.min(scaleX, scaleY));
-          
-          context.font = `${fontPx}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji", Arial, sans-serif`;
-          context.textAlign = 'center';
-          context.textBaseline = 'middle';
-          context.fillText(sticker.emoji, cx, cy);
+        const mirroredX = canvas.width - (sticker.position.x * scaleX);
+        const cy = sticker.position.y * scaleY;
+        const fontPx = Math.round((sticker.size || 48) * Math.min(scaleX, scaleY));
+        
+        context.font = `${fontPx}px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji", Arial, sans-serif`;
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillText(sticker.emoji, mirroredX, cy);
         });
       }
 
